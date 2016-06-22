@@ -1,0 +1,74 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+
+
+    <meta charset="utf-8">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="viewport" content="width=device-width">
+    <title>Chinese Game</title>
+ <!--   <script type = "text/javascript" src = "Tests.js"></script>-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
+    <script src="libs/phaser.min.js"></script>
+    <script src="libs/sql.js"></script>
+    <script src="Boot.js"></script>
+    <script src="Preloader.js"></script>
+    <script src="Title.js"></script>
+   <script src="MainMenu.js"></script>
+   <script src="Ninja.js"></script>
+    <script src="MatchMaster.js"></script>
+    <script src="Conveyor.js"></script>
+    <script src="HowTo.js"></script>
+    <script src="NinjaGameOver.js"></script>
+    <script src = "ConveyorGameOver.js"></script>
+    <script src="MatchMasterGameOver.js"></script>
+
+    <link href="favicon.ico" rel="icon" type="image/x-icon" />
+
+    <style>
+        body {
+            padding: 0;
+            margin: 0;
+            background-color: #000000;
+        }
+        .dbInput {
+            position: relative;
+            overflow: hidden;
+            margin: 10px;
+        }
+        .dbInput input.input {
+            position: absolute;
+            top: 0;
+            right: 0;
+            margin: 0;
+            padding: 0;
+            font-size: 20px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+<div id ="gameContainer"></div>
+
+<script type="text/javascript">
+    window.onload = function() {
+
+     //  runTests();
+
+       var game = new Phaser.Game("105", "105", Phaser.SHOW_ALL, 'gameContainer'); //105 105 for 7-inch tablet   115 115 for phone
+        game.state.add('Boot', LanguageGame.Boot);
+        game.state.add('Preloader',LanguageGame.Preloader);
+        game.state.add('HowTo', LanguageGame.HowTo);
+        game.state.add('Title',LanguageGame.Title);
+        game.state.add('MainMenu',LanguageGame.MainMenu);
+        game.state.add('Ninja',LanguageGame.Ninja);
+        game.state.add('MatchMaster',LanguageGame.MatchMaster);
+        game.state.add('Conveyor',LanguageGame.Conveyor);
+        game.state.add('NinjaOver', LanguageGame.NinjaGameOver);
+        game.state.add('ConveyorOver', LanguageGame.ConveyorGameOver);
+        game.state.add('MatchMasterOver', LanguageGame.MatchMasterGameOver);
+        game.state.start('Boot');
+    }
+</script>
+</body>
+</html>
